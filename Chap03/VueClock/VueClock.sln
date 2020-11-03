@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VueClock", "VueClock\VueClock.njsproj", "{A9C90A63-65E1-42E1-8F89-6BADDA715098}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9C90A63-65E1-42E1-8F89-6BADDA715098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C90A63-65E1-42E1-8F89-6BADDA715098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C90A63-65E1-42E1-8F89-6BADDA715098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C90A63-65E1-42E1-8F89-6BADDA715098}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30448AFD-9942-41A1-B6DC-8104BDBEB40E}
+	EndGlobalSection
+EndGlobal

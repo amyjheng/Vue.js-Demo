@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <input id="Name" v-on:keyup.enter="enter" />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                enter: function (event) {
+                    alert("You press enter!");
+                }
+            },
+        })
+    </script>
+</body>
+</html>

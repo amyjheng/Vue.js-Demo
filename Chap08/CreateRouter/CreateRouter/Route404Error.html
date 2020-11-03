@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/">Home</router-link>
+        <router-link to="/contact">Contact</router-link>
+        <router-link to="/about">About</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.4.7/vue-router.min.js"></script>
+    <script>
+        var PageHome = Vue.component('home', {
+            template: `<div>
+                            <h3>Home</h3>
+                          </div>`
+        });
+        var PageContact = Vue.component('contact', {
+            template: `<div>
+                            <h3>Contact</h3>
+                          </div>`
+        });
+        var PageAbout = Vue.component('about', {
+            template: `<div>
+                            <h3>About</h3>
+                          </div>`
+        });
+        var Page404 = Vue.component('error404', {
+            template: `<div>
+                            <h3>你迷路了嗎? 你累了嗎?</h3>
+                          </div>`
+        });        
+        var mainRoutes = [
+            { path: '/', component: PageHome },
+            { path: '/contact', component: PageContact },
+            { path: '/about', component: PageAbout },
+            { path: '*', component:Page404 }
+        ];
+        const mainRouter = new VueRouter({
+            routes: mainRoutes
+        });
+        var app = new Vue({
+            el: '#app',
+            router: mainRouter,
+        });
+    </script>
+</body>
+</html>

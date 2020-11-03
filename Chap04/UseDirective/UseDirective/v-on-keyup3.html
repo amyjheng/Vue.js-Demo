@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <input id="Name" v-on:keyup="onKeyup(1, event)" />
+        <button id="btnLogin" disabled>Login</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            methods: {
+                onKeyup: function (arg, event) {
+                    alert(arg);
+                }
+            },
+        })
+    </script>
+</body>
+</html>

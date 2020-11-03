@@ -1,0 +1,93 @@
+﻿<!--An imperative guide to forms in Vue.js(https://blog.logrocket.com/an-imperative-guide-to-forms-in-vue-js-2/)-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+</head>
+<body>
+    <div class="columns" id="app">
+        <div class="column is-two-thirds">
+            <section class="section">
+                <h1 class="title">Form Demo</h1>
+                <hr>
+                <!-- form starts here -->
+                <section class="form">
+                    <form v-on:submit.prevent="$validator.validateAll(); console.log(form);">
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input name="name" v-model="form.name" v-validate="'required|min:3'" v-bind:class="{'text-danger': errors.has('name')}" class="input" type="text" placeholder="請輸入姓名(至少三個字元)">
+                            </div>
+                            <p class="help is-danger" v-show="errors.has('name')">
+                                {{ errors.first('name') }}
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Message</label>
+                            <div class="control">
+                                <textarea name="message" class="textarea" v-validate="'required|polite'" placeholder="請輸入訊息" v-bind:class="{'is-danger': errors.has('message')}" v-model="form.message"></textarea>
+                            </div>
+                            <p class="help is-danger" v-show="errors.has('message')">
+                                {{ errors.first('message') }}
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" v-model="form.terms">
+                                    I agree to the <a href="#">terms and conditions</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button v-bind:disabled="errors.any()" class="button is-primary">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </section>
+            </section>
+        </div>
+
+        <div class="column">
+            <section class="section" id="results">
+                <div class="box">
+                    <ul>
+                        <li v-for="(item, k) in form">
+                            <strong>{{ k }}:</strong> {{ item }}
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vee-validate@2.0.0-rc.18/dist/vee-validate.js"></script>
+    <script>
+        Vue.use(VeeValidate);
+        VeeValidate.Validator.extend("polite", {
+            getMessage: field => `You need to be polite in the ${field} field`,
+            validate: value => value.toLowerCase().indexOf("please") !== -1
+        });
+        new Vue({
+            el: "#app",
+            data: {
+                form: {
+                    name: "",
+                    message: "",
+                    terms: false,
+                },
+            }
+        });
+    </script>
+</body>
+</html>

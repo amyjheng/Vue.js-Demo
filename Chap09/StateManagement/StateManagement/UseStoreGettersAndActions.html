@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ counter }}</p>
+        <p>
+            <button v-on:click="incr()">+</button>
+            <button v-on:click="decr()">-</button>
+        </p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vuex@3.3.0"></script>
+    <script>
+        const store = new Vuex.Store({
+            state: {
+                count: 0
+            },
+            mutations: {                            //變更store的狀態
+                increment: state => state.count++,
+                decrement: state => state.count--
+            },
+            getters: {
+                counter: state => {
+                    return state.count
+                }
+            },
+            actions: {
+                add({ commit }) {
+                    commit('increment')
+                },
+                del({ commit }) {               //支援同步呼叫的del函式
+                    commit('decrement')
+                },
+                //async del({ commit }) {       //支援非同步呼叫的del函式
+                //    await commit('decrement')
+                //},
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            computed: {
+                counter: function () {              //取用store的狀態
+                    return store.getters.counter;
+                }
+            },
+            methods: {
+                incr() {
+                    store.dispatch('add');      //叫用store的add action
+                },
+                decr() {
+                    store.dispatch('del');      //叫用store的del action
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <mybutton v-on:increment="incrementTotal" v-bind:total="total"></mybutton>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        Vue.component('mybutton', {
+            template: '<button v-on:click="increment">MyButton:{{total}}</button>',
+            props:['total'],
+            methods: {
+                increment: function () {
+                    this.$emit('increment')
+                }
+            },
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                total:0
+            },
+            methods: {
+                incrementTotal: function () {
+                    this.total ++
+                }
+            }
+        })
+    </script>
+</body>
+</html>

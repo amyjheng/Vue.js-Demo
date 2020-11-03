@@ -1,0 +1,40 @@
+﻿    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .flip-list-move {
+            transition: transform 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" style="padding:10px">
+        <button v-on:click="sort">Sort</button>
+        <ul>
+            <transition-group name="flip-list">
+                <li v-for="item in items" v-bind:key="item">
+                    {{ item }}
+                </li>
+            </transition-group>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+            },
+            methods: {
+                sort: function () {
+                    this.items.sort();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

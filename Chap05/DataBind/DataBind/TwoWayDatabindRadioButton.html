@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <p>Level: {{StarRank}}</p>
+        <input id="OneStar" type="radio" value="OneStar" v-model="StarRank"/>&#11088;
+        <input id="TwoStar" type="radio" value="TwoStar" v-model="StarRank"/>&#11088;&#11088;
+        <input id="ThreeStar" type="radio" value="ThreeStar" v-model="StarRank"/>&#11088;&#11088;&#11088;
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                StarRank:'TwoStar'
+            }
+        })
+    </script>
+</body>
+</html>

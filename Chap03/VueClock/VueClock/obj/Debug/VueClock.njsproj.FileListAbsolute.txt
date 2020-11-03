@@ -1,0 +1,5 @@
+C:\VUE\VueClock\VueClock\obj\Debug\VueClock.njsproj.CoreCompileInputs.cache
+C:\VUE\VueClock\VueClock\bin\Microsoft.NodejsTools.WebRole.dll
+E:\網頁開發\VUE\Demo\Chap03\VueClock\VueClock\obj\Debug\VueClock.njsprojAssemblyReference.cache
+E:\網頁開發\VUE\Demo\Chap03\VueClock\VueClock\obj\Debug\VueClock.njsproj.CoreCompileInputs.cache
+E:\網頁開發\VUE\Demo\Chap03\VueClock\VueClock\bin\Microsoft.NodejsTools.WebRole.dll
